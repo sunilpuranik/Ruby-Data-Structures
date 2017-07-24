@@ -2,7 +2,7 @@ class LinkedList
 	attr_accesor :head
 
 	def initialize(val)
-		@head = Node.new(val, nil)
+		@head = LinkedList::Node.new(val, nil)
 	end
 
 	def new_node(val)
@@ -10,7 +10,7 @@ class LinkedList
 		while current.next != nil
 			current = current.next
 		end
-		current.next = Node.new(val, nil)
+		current.next = LinkedList::Node.new(val, nil)
 	end
 
 	def delete(val)
@@ -35,5 +35,15 @@ class LinkedList
 	      current = current.next
 	    end
 	    elements << current
+	end
+
+	class Node
+		attr_accessor :val, :next
+
+		def initialize(val, next_node)
+			@val = val
+			@next_node = next_node 
+		end
 	end	
+
 end
